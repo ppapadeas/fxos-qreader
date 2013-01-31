@@ -1,0 +1,15 @@
+{
+  "version": "0.0.1",
+  "name": "fxos-qreader",
+  "launch_path": "index.html",
+  "description": "FirefoxOS QR Reader",
+  "icons": {
+    "128": "/logo128.png"
+  },
+  "developer": {
+    "name": "John Giannelos & Pierros Papadeas",
+    "url": "http://hackerspace.gr"
+  },
+  "installs_allowed_from": ["*"],
+  "default_locale": "en"
+}
