@@ -159,7 +159,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-function read(a) {}
+function read(a) {
+    return a;
+}
 
 qrcode.callback = read;
 
@@ -176,11 +178,14 @@ function QRreader() {
 	    var img = document.createElement("img");
 	    img.src = window.URL.createObjectURL(pick.result.blob);
 
-            qrcode.decode(img.src);
+            var result = qrcode.decode(img.src);
 	 
 	    // Present that image in your app
 	    var imagePresenter = document.querySelector("#scanned");
+	    var content = document.querySelector("#content");
 	    imagePresenter.appendChild(img);
+	    result.appendChild(content);
+
 	};
 	 
 	pick.onerror = function () {
