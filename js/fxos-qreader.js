@@ -184,7 +184,9 @@ function QRreader() {
 	    var imagePresenter = document.querySelector("#scanned");
 	    var content = document.querySelector("#content");
 	    imagePresenter.appendChild(img);
-	    result.appendChild(content);
+
+	    console.log(result + "THIS IS THE RESULT");
+	    content.appendChild(result);
 
 	};
 	 
