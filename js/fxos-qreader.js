@@ -157,3 +157,41 @@ document.addEventListener("DOMContentLoaded", function () {
       buttons[i].addEventListener("click", activate);
    };
 });
+
+
+function read(a) {}
+
+qrcode.callback = read;
+
+function QRreader() {
+	var pick = new MozActivity({
+	   name: "pick",
+	   data: {
+	       type: ["image/png", "image/jpg", "image/jpeg"]
+	   }
+	});
+    
+	pick.onsuccess = function () {
+	    // Create image and set the returned blob as the src
+	    var img = document.createElement("img");
+	    img.src = window.URL.createObjectURL(pick.result.blob);
+
+            qrcode.decode(img.src);
+	 
+	    // Present that image in your app
+	    var imagePresenter = document.querySelector("#scanned");
+	    imagePresenter.appendChild(img);
+	};
+	 
+	pick.onerror = function () {
+	    $.mobile.hidePageLoadingMsg();
+	    // If an error occurred or the user canceled the activity
+	    alert("Can't view the image!");
+	};
+}
+
+$(document).ready(function(){
+    $('#takepic').click(function(){
+	QRreader();
+    })
+});
